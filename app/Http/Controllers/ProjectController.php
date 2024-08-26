@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class ProjectController extends Controller
 {
     public function index(){
-        $projects= Project::with('user')->paginate(10);
+        $projects= Project::where('user_id',Auth::id())->with('user')->paginate(10);
         return view('projects.index',compact('projects'));
     }
 

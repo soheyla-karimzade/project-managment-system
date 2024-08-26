@@ -46,7 +46,7 @@
                                 <td class="py-2 px-4 border-b border-gray-300">{{ $project->user->name }}</td>
                                 <td class="py-2 px-4 border-b border-gray-300">
                                     <a class="text-blue-600 hover:underline" href="{{ route('project.show', $project->id) }}">Edit</a>
-                                    <form action="{{ route('project.show', $project->id) }}" method="POST" class="inline-block">
+                                    <form action="{{ route('project.destroy', $project->id) }}" method="POST" class="inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:underline ml-2">Delete</button>

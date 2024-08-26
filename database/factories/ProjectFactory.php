@@ -21,7 +21,7 @@ class ProjectFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'user_id'=>User::where('email','test@example.com')->first()->id,
+            'user_id'=>User::factory()->create(),
         ];
     }
 }

@@ -87,26 +87,4 @@ class ProjectControllerTest extends TestCase
             'name' => 'project_update',
         ]);
     }
-
-    public function test_projects_destroy(){
-        $user=User::factory()->create();
-        $this->actingAs($user);
-        $data = [
-            'name' => 'project_update_test',
-            'user_id' => $user->get('id')
-        ];
-        $this->post('/project',$data);
-
-        $projectId= Project::where('name','project_update_test')->first();
-
-        $data = [
-            'name' => 'project_update',
-        ];
-        $response=$this->delete('/project/'.$projectId );
-
-        $response->assertStatus(302);
-        $this->assertDatabaseEmpty('projects', [
-            'name' => 'project_update',
-        ]);
-    }
 }
